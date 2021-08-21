@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block titulo %}  SHOWS (PRINCIPAL)  {% endblock %} 
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        toastr.info("Hola, Bienvenido a TV Shows");
+    });
+</script>
+{% endblock %}
+
+ {% block estilos %}
+ <style>
+    h1{
+      color: red;  
+    }
+ </style>
+ {% endblock %}
+
+{% block contenido %}
+
+    {% comment %} <h1 class="tooltip-tipped" ayuda="ESTO ES UN INDED">Inicio</h1> {% endcomment %}
+    {% comment %} {% include 'secciones/menu.html' %} {% endcomment %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h3>Todos los Shows</h3>
+
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Título</th>
+                            <th>Network</th>
+                            <th>Liberación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in shows %}
+                            <tr>
+                                <td>{{s.id}}</td>
+                                <td>{{s.titulo}}</td>
+                                <td>{{s.network}}</td>
+                                <td>{{s.network}}</td>
+                                <td><a href="/shows/{{s.id}}" class="btn btn-success btn-sm">Ver</a>
+                                    <a href="/shows/{{s.id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="/shows/{{s.id}}/delete" class="btn btn-danger btn-sm">Eliminar</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>    
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-6">
+                <a href="/shows/new" class="btn btn-warning">Agregar un nuevo Show</a>
+            </div>
+        </div>        
+
+
+    </div>
+
+{% endblock %}
+
+

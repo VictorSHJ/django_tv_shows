@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block titulo %}  EDITAR TV SHOW {% endblock %} 
+
+{% block contenido %}
+
+    {% comment %} {% include 'secciones/menu.html' %} {% endcomment %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-8">
+                <h3>Editar Show ({{id}})</h3>
+                <form action="/shows/actualizar_show/{{id}}" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3 mt-5">
+                        <label for="titulo" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="titulo-id" name="titulo" value="{{titulo}}"> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="network" class="form-label">Network</label>
+                        <input type="text" class="form-control" id="network-id" name="network" value="{{network}}"> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="descri" class="form-label">Descripción</label>
+                        <input type="text" class="form-control" id="descripcion-id" name="descripcion" value="{{descri}}"> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="release" class="form-label">Release</label>
+                        <input type="date" class="form-control" id="release-id" name="release" value="{{libera}}"> 
+                    </div>
+                    <button type="submit" class="btn btn-primary">Actualizar Show</button>
+                </form>
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <a href="/shows" class="btn btn-warning">Volver</a>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>    
+
+{% endblock %}
+
+

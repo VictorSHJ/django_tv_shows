@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block titulo %}  MOSTRAR TV SHOW  {% endblock %} 
+
+{% block contenido %}
+
+    {% comment %} {% include 'secciones/menu.html' %} {% endcomment %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-8">
+            <h3>TV Show ({{id}})</h3>
+            <div class="mb-2 mt-5">
+                <label for="titulo" class="form-label">Título : </label>
+                <label for="titulo" class="form-label">{{titulo}}</label>
+            </div>
+            <div class="mb-2">
+                <label for="network" class="form-label">Network : </label>
+                <label for="network" class="form-label">{{network}}</label>
+            </div>
+            <div class="mb-2">
+                <label for="release" class="form-label">Release : </label>
+                <label for="release" class="form-label">{{libera}}</label>
+            </div>
+            <div class="mb-2">
+                <label for="descri" class="form-label">Descripción : </label>
+                <label for="descri" class="form-label">{{descri}}</label>
+            </div>
+            <div class="mb-2">
+                <label for="descri" class="form-label">Ultima Modificación : </label>
+                <label for="descri" class="form-label">{{ultima|date:"F d, Y h:i a"}}</label>
+            </div>            
+
+            <div class="row mt-5">
+                <div class="col-4">
+                    <a href="/shows/{{id}}/edit" class="btn btn-success">Editar</a>
+                </div>
+            </div>        
+            <div class="row mt-2">
+                <div class="col-4">
+                    <a href="/shows/{{id}}/delete" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>                    
+            <div class="row mt-2">
+                <div class="col-4">
+                    <a href="/shows" class="btn btn-warning">Volver</a>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
